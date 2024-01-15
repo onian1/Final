@@ -1,10 +1,11 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
+import './Header.css'; 
 
 const Header = () => {
   return (
-    <header className="bg-light p-3">
-      <h1>Your App Name</h1>
-      {/* Add any other header content */}
+    <header className="header">
+      <Navbar />
     </header>
   );
 };

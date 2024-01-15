@@ -6,12 +6,11 @@ import Contact from './components/pages/Contact';
 import About from './components/pages/About';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import Navbar from './components/Navbar';
+import './index.css';
 
 ReactDOM.render(
   <Router>
     <Header/>
-    <Navbar/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Contact" element={<Contact />} />
