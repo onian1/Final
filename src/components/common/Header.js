@@ -1,10 +1,13 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import './Header.css'; 
+import { useColorMode } from '@chakra-ui/react';
+import './Header.css';
 
 const Header = () => {
+  const { colorMode } = useColorMode();
+
   return (
-    <header className="header">
+    <header className={`header ${colorMode}`}>
       <Navbar />
     </header>
   );

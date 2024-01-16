@@ -1,27 +1,31 @@
-// Navbar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as ReactRouterNavLink } from 'react-router-dom';
+import { Link as ChakraLink, Button, Flex, useColorMode, Icon } from '@chakra-ui/react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import './Navbar.css';
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects">Projects</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Flex className="navbar" justify="space-between" align="center">
+      <Flex>
+        <ChakraLink as={ReactRouterNavLink} to="/" className="nav-link" activeClassName="active" exact>
+          Home
+        </ChakraLink>
+        <ChakraLink as={ReactRouterNavLink} to="/about" className="nav-link" activeClassName="active">
+          Projects
+        </ChakraLink>
+        <ChakraLink as={ReactRouterNavLink} to="/contact" className="nav-link" activeClassName="active">
+          Contact
+        </ChakraLink>
+      </Flex>
+      <Flex>
+        <Button onClick={toggleColorMode}>
+          {colorMode === 'light' ? <Icon as={FiMoon} /> : <Icon as={FiSun} />}
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 
